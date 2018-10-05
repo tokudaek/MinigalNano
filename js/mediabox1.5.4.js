@@ -103,7 +103,7 @@ var Mediabox;
 				showCaption: true,				// Display the title and caption, true / false
 				showCounter: true,				// If true, a counter will only be shown if there is more than 1 image to display
 				countBack: false,				// Inverts the displayed number (so instead of the first element being labeled 1/10, it's 10/10)
-				clickBlock: false,				// Adds an event on right-click to block saving of images from the context menu in most browsers (this can't prevent other ways of downloading, but works as a casual deterent)
+				clickBlock: true,				// Adds an event on right-click to block saving of images from the context menu in most browsers (this can't prevent other ways of downloading, but works as a casual deterent)
 								// due to less than ideal code ordering, clickBlock on links must be removed manually around line 250
 //			iOS device options
 //				iOSenable: false,				// When set to false, disables overlay entirely (links open in new tab)
@@ -246,9 +246,9 @@ var Mediabox;
 			var links = this;
 
 /*  clickBlock code - remove the following three lines to enable right-clicking on links to images  */
-			links.addEvent('contextmenu', function(e){
-				if (this.toString().match(/\.gif|\.jpg|\.jpeg|\.png/i)) e.stop();
-			});
+			//links.addEvent('contextmenu', function(e){
+				//if (this.toString().match(/\.gif|\.jpg|\.jpeg|\.png/i)) e.stop();
+			//});
 
 			links.removeEvents("click").addEvent("click", function() {
 				// Build the list of media that will be displayed
