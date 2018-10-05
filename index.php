@@ -155,8 +155,8 @@ if (!empty($_GET['dir'])) {
 	$requestedDir = $_GET['dir'];
 }
 
-$photo_root = GALLERY_ROOT . 'photos/';
-$thumbdir = rtrim('photos/' . $requestedDir, '/');
+$photo_root = GALLERY_ROOT . 'data/';
+$thumbdir = rtrim('data/' . $requestedDir, '/');
 $current_dir = GALLERY_ROOT . $thumbdir;
 
 guardAgainstDirectoryTraversal($current_dir);
@@ -217,7 +217,8 @@ if (is_dir($current_dir) && $handle = opendir($current_dir)) {
 					unset($firstimage);
 					$firstimage = getfirstImage("$current_dir/" . $file);
 
-					if ($firstimage != "") {
+					//if ($firstimage != "") {
+					if (False) {
 						$linkParams = http_build_query(
 							array('dir' => ltrim("$requestedDir/$file", '/')),
 							'',
